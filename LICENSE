@@ -25,7 +25,7 @@ Covenants of Licensor
 In consideration of the right to use this License's text and the "Business Source License" name and trademark, Licensor covenants to MariaDB, and to all other recipients of the licensed work to be provided by Licensor:
 
 Licensor: Copyright © 2025 Open Source Hunt, Inc. All Rights Reserved.
-Licensed Work: The software codebase for Open Source Hunt, located at https://github.com/open-source-hunt/open-source-hunt.
+Licensed Work: The software codebase for Open Source Hunt, located at https://github.com/open-source-hunt/hunt.
 Additional Use Grant: None.
 Change Date: Five years from the date this version of the Licensed Work is first made publicly available on GitHub, whether by publishing a release or pushing a commit to a public branch. For example, a commit made public on January 1, 2025, will transition to GPLv3 on January 1, 2030. Commits made later will have their own five-year transition period.
 Change License: GPLv3
