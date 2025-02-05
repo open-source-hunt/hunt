@@ -1,24 +1,22 @@
 {
-  "name": "example-bare",
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "description": "",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "vite-plugin-solid": "^2.11.1"
   },
   "dependencies": {
     "@solidjs/router": "^0.15.3",
-    "@solidjs/start": "^1.0.6",
-    "solid-js": "^1.9.2",
-    "vinxi": "^0.4.3"
-  },
-  "overrides": {
-    "vite": "5.4.10"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "devDependencies": {
-    "sass": "^1.83.4"
+    "sass": "^1.83.4",
+    "solid-js": "^1.9.3"
   }
 }

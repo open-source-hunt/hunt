@@ -1,5 +1,4 @@
-import { createResource, Resource } from "solid-js";
-import WelcomeClient from "~/components/welcome-client";
+import { createResource, Switch, Match } from "solid-js";
 
 import styles from "./welcome.module.scss";
 
@@ -7,28 +6,28 @@ interface Welcome {
   Message: string;
 }
 
-export function routeData(): Resource<Welcome | undefined> {
-  const [data] = createResource<Welcome>(async (): Promise<Welcome> => {
-    const response = await fetch("/api/welcome");
+async function fetchRouteData(): Promise<Welcome> {
+    const response = await fetch("/api/welcome")
     if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
+      throw new Error(`Error: ${response.status}`)
     }
-    const data = await response.json();
-    return data;
-  });
-  return data;
+    return await response.json()
 }
 
-export default function WelcomePage(props: { data: Resource<Welcome | undefined> }) {
-  return (
-    <main>
-      <h1 class={styles.title}>{props.data?.loading
-          ? "Loading..."
-          : props.data?.error
-          ? `Error: ${props.data.error.message}`
-          : props.data?.()?.Message || "No message available"}</h1>
-      <p class={styles.description}>This part is rendered on the server.</p>
-      <WelcomeClient />
-    </main>
-  );
+export default function WelcomePage() {
+    const [data] = createResource<Welcome>(fetchRouteData)
+
+    return (
+        <Switch fallback={<h1 class={styles.title}>No message available</h1>}>
+            <Match when={data.loading}>
+                <h1 class={styles.title}>Loading...</h1>
+            </Match>
+            <Match when={data.error}>
+                <h1 class={styles.title}>Error: {data.error.message}</h1>
+            </Match>
+            <Match when={data()}>
+                <h1 class={styles.title}>{data()!.Message}</h1>
+            </Match>
+        </Switch>
+    );
 }
