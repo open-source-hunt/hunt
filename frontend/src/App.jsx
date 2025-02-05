@@ -2,7 +2,7 @@ import { Router, Route } from "@solidjs/router";
 
 import WelcomePage from "./routes/welcome";
 
-import logo from './logo.svg';
+import logo from '../assets/logo.svg';
 import styles from './App.module.scss';
 
 function App() {
