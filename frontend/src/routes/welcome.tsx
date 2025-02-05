@@ -1,4 +1,5 @@
 import { createResource, Switch, Match } from "solid-js";
+import { fetchApi } from "../utils/api";
 
 import styles from "./welcome.module.scss";
 
@@ -7,7 +8,7 @@ interface Welcome {
 }
 
 async function fetchRouteData(): Promise<Welcome> {
-    const response = await fetch("/api/welcome")
+    const response = await fetchApi("/welcome")
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`)
     }
